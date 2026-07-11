@@ -1,0 +1,63 @@
+<svg width="1000" height="220" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ramalingaiah K R — AI/ML Engineer">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05060f"/>
+      <stop offset="55%" stop-color="#161247"/>
+      <stop offset="100%" stop-color="#3a0a5e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8A2BE2" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8A2BE2" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="0.6"/></filter>
+  </defs>
+
+  <!-- deep space -->
+  <rect width="1000" height="220" fill="url(#sky)"/>
+  <ellipse cx="500" cy="120" rx="520" ry="180" fill="url(#glow)"/>
+
+  <!-- drifting star layers (whole layer glides, individual stars twinkle) -->
+  <g filter="url(#soft)">
+    <!-- far layer: slow drift -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-120 0" dur="60s" repeatCount="indefinite"/>
+      <g fill="#ffffff">
+        <circle cx="60" cy="40" r="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.5s" repeatCount="indefinite"/></circle>
+        <circle cx="180" cy="150" r="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="4.2s" repeatCount="indefinite"/></circle>
+        <circle cx="320" cy="70" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.8s" repeatCount="indefinite"/></circle>
+        <circle cx="470" cy="180" r="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.9s" repeatCount="indefinite"/></circle>
+        <circle cx="620" cy="50" r="1"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="4.6s" repeatCount="indefinite"/></circle>
+        <circle cx="760" cy="140" r="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.1s" repeatCount="indefinite"/></circle>
+        <circle cx="900" cy="90" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.0s" repeatCount="indefinite"/></circle>
+        <circle cx="1060" cy="160" r="1"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.3s" repeatCount="indefinite"/></circle>
+      </g>
+    </g>
+    <!-- near layer: faster drift, bigger stars -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-200 0" dur="38s" repeatCount="indefinite"/>
+      <g fill="#dcd6ff">
+        <circle cx="120" cy="90" r="1.6"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" repeatCount="indefinite"/></circle>
+        <circle cx="280" cy="130" r="1.6"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.0s" repeatCount="indefinite"/></circle>
+        <circle cx="440" cy="60" r="1.6"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.7s" repeatCount="indefinite"/></circle>
+        <circle cx="600" cy="150" r="1.6"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></circle>
+        <circle cx="800" cy="80" r="1.6"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.9s" repeatCount="indefinite"/></circle>
+        <circle cx="980" cy="120" r="1.6"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+        <circle cx="1160" cy="60" r="1.6"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/></circle>
+      </g>
+    </g>
+  </g>
+
+  <!-- shooting star: streaks across every ~7s -->
+  <g>
+    <line x1="0" y1="0" x2="34" y2="10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;0" keyTimes="0;0.62;0.72;0.8" dur="7s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" from="120 -20" to="820 180" dur="7s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- title -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="500" y="104" font-size="46" font-weight="700" fill="#ffffff">Ramalingaiah K R</text>
+    <text x="500" y="140" font-size="17" fill="#c9a7ff" letter-spacing="2">AI / ML ENGINEER  ·  NAVIGATING THE DATA COSMOS  🚀</text>
+  </g>
+</svg>
