@@ -1,17 +1,26 @@
 # Generates the "snake eating your contribution graph" animation and
 # publishes it to the `output` branch, where the README loads it from.
-# Runs automatically every 12 hours, on push to main, and on demand.
+#
+# Runs hourly, on push to main, and on demand.
+# Note: GitHub delays scheduled runs under load — :17 past the hour avoids
+# the top-of-hour rush, when jobs are most likely to be dropped entirely.
 name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "17 * * * *"
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# If a scheduled run is still going when the next fires, drop the older one
+# rather than queueing up a backlog.
+concurrency:
+  group: snake
+  cancel-in-progress: true
 
 jobs:
   generate:
@@ -34,3 +43,10 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # GitHub disables scheduled workflows after 60 days without repo activity.
+      # This touches a file every ~50 days so the schedule never goes dormant.
+      - name: Keepalive
+        uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          time_elapsed: 50
